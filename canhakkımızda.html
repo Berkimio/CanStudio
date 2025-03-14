@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can Dev Studio - Hakkımızda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset ve Temel Stiller */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: #00f3ff;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00f3ff;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hakkımızda Bölümü */
+        .about-section {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, #0066ff, #00f3ff);
+            text-align: center;
+        }
+
+        .about-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .team-section {
+            padding: 100px 50px;
+            background: #111;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 20px;
+            transition: 0.3s;
+            animation: fadeInUp 1s ease 0.4s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
+        }
+
+        .team-card img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .team-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .team-card p {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 20px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 80px;
+                right: 20px;
+                background: rgba(10, 10, 10, 0.95);
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .about-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">CAN DEV STUDIO</a>
+        <div class="nav-links">
+            <a href="CanStudio.html">Ana Sayfa</a>
+            <a href="CanStudio.html#games">Oyunlar</a>
+            <a href="#home">Hakkımızda</a>
+            <a href="caniletisim.html">İletişim</a>
+        </div>
+    </nav>
+
+    <section class="about-section">
+        <h1>Can Dev Studio'ya Hoşgeldiniz</h1>
+        <p>Can Dev Studio, oyun endüstrisinde yeni bir soluk getiren, yaratıcı ve yenilikçi oyun projeleri geliştiren bir yazılım şirketidir. Geliştirdiğimiz oyunlar ile oyuncularımıza farklı deneyimler sunmayı hedefliyoruz. Her bir projemiz, teknoloji ile sanatı buluşturup oyuncuları büyülemeyi amaçlamaktadır.</p>
+    </section>
+
+    <section class="team-section">
+        <h2>Ekibimiz</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <h3>Mustafa Can</h3>
+                <p>Kurucu</p>
+            </div>
+            <div class="team-card">    
+                <h3>Berk Can</h3>
+                <p>Full-stack Game Developer</p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Can Dev Studio. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+       
+        
+    </script>
+</body>
+</html>

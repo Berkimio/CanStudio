@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Can Dev Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: #00f3ff;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00f3ff;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #0066ff, #00f3ff);
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #00f3ff, #0066ff);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+            animation: fadeInUp 1s ease 0.4s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 50px;
+            background: #111;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #262626;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #00f3ff, #0066ff);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .contact-info div {
+            background: #262626;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact-info div i {
+            font-size: 2.5rem;
+            color: #00f3ff;
+            margin-bottom: 15px;
+        }
+
+        .contact-info div p {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info div {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a  class="logo">CAN DEV STUDIO</a>
+        <div class="nav-links">
+            <a href="CanStudio.html">Ana Sayfa</a>
+            <a href="CanStudio.html#games">Oyunlar</a>
+            <a href="canhakkımızda.html">Hakkımızda</a>
+            <a href="#home">İletişim</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>İletişim</h1>
+    </section>
+
+    <section class="contact-section">
+        <h2>Bize Ulaşın</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Adınız" required>
+            <input type="email" placeholder="E-posta adresiniz" required>
+            <textarea placeholder="Mesajınız" rows="5" required></textarea>
+            <button type="submit">Gönder</button>
+        </form>
+
+        <div class="contact-info">
+            <div>
+                <i class="fas fa-phone"></i>
+                <p>0541-487-91-28</p>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <p>cannstudioo@gmail.com</p>
+            </div>
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Can Dev Studio, Kocaeli</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Can Dev Studio. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+       
+    </script>
+</body>
+</html>
