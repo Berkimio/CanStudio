@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset ve Temel Stiller */
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +25,6 @@
             letter-spacing: 2px;
         }
 
-        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -74,21 +72,6 @@
             width: 100%;
         }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #fff;
-            margin: 4px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -107,13 +90,11 @@
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            animation: fadeInUp 1s ease;
         }
 
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 30px;
-            animation: fadeInUp 1s ease 0.2s;
         }
 
         .cta-button {
@@ -125,178 +106,18 @@
             color: #fff;
             cursor: pointer;
             transition: 0.3s;
-            animation: fadeInUp 1s ease 0.4s;
         }
 
         .cta-button:hover {
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
         }
-
-        /* Games Section */
-        .games-section {
-            padding: 100px 50px;
-            background: #111;
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .game-card {
-            background: #1a1a1a;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
-        }
-
-        .game-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .game-info {
-            padding: 20px;
-        }
-
-        /* Öne Çıkan Özellikler Bölümü */
-        .features-section {
-            padding: 100px 50px;
-            background: #1a1a1a;
-            text-align: center;
-        }
-
-        .features-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: #262626;
-            padding: 30px;
-            border-radius: 15px;
-            transition: 0.3s;
-            animation: fadeInUp 1s ease 0.4s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
-        }
-
-        .feature-card i {
-            font-size: 2.5rem;
-            color: #00f3ff;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            font-size: 1rem;
-            color: #aaa;
-        }
-
-        /* Particle Background */
-        #particles-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Footer */
-        footer {
-            background: #0a0a0a;
-            padding: 20px;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* Responsive Tasarım */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 20px;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                gap: 10px;
-                position: absolute;
-                top: 80px;
-                right: 20px;
-                background: rgba(10, 10, 10, 0.95);
-                padding: 20px;
-                border-radius: 10px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .games-grid, .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animasyonlar */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a  class="logo">CAN DEV STUDIO</a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-links" id="nav-links">
+        <a class="logo">CAN DEV STUDIO</a>
+        <div class="nav-links">
             <a href="#home">Ana Sayfa</a>
             <a href="#games">Oyunlar</a>
             <a href="canhakkımızda.html">Hakkımızda</a>
@@ -305,7 +126,6 @@
     </nav>
 
     <section class="hero" id="home">
-        <canvas id="particles-canvas"></canvas>
         <div class="hero-content">
             <h1>Yeni Nesil Oyun Deneyimi</h1>
             <p>Sınırları zorlayan oyunlar yaratıyoruz</p>
@@ -313,134 +133,8 @@
         </div>
     </section>
 
-    <section class="games-section" id="games">
-        <h2>Oyunlarımız</h2>
-        <div class="games-grid">
-            <div class="game-card">
-                <img src="Word Jumble.png" alt="" class="game-image">
-                <div class="game-info">
-                    <h3>Word Jumble-Kelime Karışımı</h3>
-                    <p>Zekâ ve kelime bilginizi test eden eğlenceli bir oyun!</p>
-                    <button class="cta-button">Detaylar</button>
-                </div>
-            </div>
-            <div class="game-card">
-                <img src="game2-thumbnail.jpg" alt="" class="game-image">
-                <div class="game-info">
-                    <h3>YAKINDA</h3>
-                    <p></p>
-                    <button class="cta-button">Detaylar</button>
-                </div>
-            </div>
-            <div class="game-card">
-                <img src="game3-thumbnail.jpg" alt="" class="game-image">
-                <div class="game-info">
-                    <h3>YAKINDA</h3>
-                    <p></p>
-                    <button class="cta-button">Detaylar</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section">
-        <h2>Öne Çıkan Özellikler</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-paint-brush"></i>
-                <h3>Yaratıcı Tasarım</h3>
-                <p>Oyunlarımızda benzersiz ve etkileyici tasarımlar kullanıyoruz.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-code"></i>
-                <h3>Teknolojik Yenilik</h3>
-                <p>En son teknolojileri kullanarak oyunlarımızı geliştiriyoruz.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-users"></i>
-                <h3>Topluluk Odaklı</h3>
-                <p>Oyuncularımızın geri bildirimlerini dikkate alarak sürekli gelişiyoruz.</p>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <p>&copy; 2025 Can Dev Studio. Tüm hakları saklıdır.</p>
     </footer>
-
-    <script>
-        // Hamburger Menu Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Particle Background
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-        const particleCount = 100;
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 3 - 1.5;
-                this.speedY = Math.random() * 3 - 1.5;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-
-            draw() {
-                ctx.fillStyle = 'rgba(0, 243, 255, 0.5)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function init() {
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-            }
-            
-            requestAnimationFrame(animate);
-        }
-
-        init();
-        animate();
-
-        // Responsive Canvas
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-                       
-        
-    </script>
 </body>
 </html>
