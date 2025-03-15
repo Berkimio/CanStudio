@@ -220,12 +220,37 @@
             .contact-info div {
                 margin-bottom: 20px;
             }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 80px;
+                right: 20px;
+                background: rgba(10, 10, 10, 0.95);
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a  class="logo">CAN DEV STUDIO</a>
+        <a class="logo">CAN DEV STUDIO</a>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="nav-links">
             <a href="CanStudio.html">Ana Sayfa</a>
             <a href="CanStudio.html#games">Oyunlar</a>
@@ -238,66 +263,70 @@
         <h1>İletişim</h1>
     </section>
 
-   <section class="contact-section">
-    <h2>Bize Ulaşın</h2>
-    <form class="contact-form" id="contactForm">
-        <input type="text" id="name" placeholder="Adınız" required>
-        <input type="email" id="email" placeholder="E-posta" required>
-        <textarea id="message" placeholder="Mesajınız" rows="5" required></textarea>
-        <button type="submit">Gönder</button>
-    </form>
-</section>
-        <div class="contact-info">
-            <div>
-                <i class="fas fa-phone"></i>
-                <p>0541-487-91-28</p>
-            </div>
-            <div>
-                <i class="fas fa-envelope"></i>
-                <p>cannstudioo@gmail.com</p>
-            </div>
-            <div>
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Can Dev Studio, Kocaeli</p>
-            </div>
-        </div>
+    <section class="contact-section">
+        <h2>Bize Ulaşın</h2>
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="name" placeholder="Adınız" required>
+            <input type="email" id="email" placeholder="E-posta" required>
+            <textarea id="message" placeholder="Mesajınız" rows="5" required></textarea>
+            <button type="submit">Gönder</button>
+        </form>
     </section>
+
+    <div class="contact-info">
+        <div>
+            <i class="fas fa-phone"></i>
+            <p>0541-487-91-28</p>
+        </div>
+        <div>
+            <i class="fas fa-envelope"></i>
+            <p>cannstudioo@gmail.com</p>
+        </div>
+        <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Can Dev Studio, Kocaeli</p>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 Can Dev Studio. Tüm hakları saklıdır.</p>
     </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-    (function() {
-        emailjs.init("YoC-OJisQeBBR8zRE");
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("YoC-OJisQeBBR8zRE");
 
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
 
-            let name = document.getElementById("name").value.trim();
-            let email = document.getElementById("email").value.trim();
-            let message = document.getElementById("message").value.trim();
+                let name = document.getElementById("name").value.trim();
+                let email = document.getElementById("email").value.trim();
+                let message = document.getElementById("message").value.trim();
 
-            if (name === "" || email === "" || message === "") {
-                alert("Lütfen tüm alanları doldurun! ❌");
-                return;
-            }
+                if (name === "" || email === "" || message === "") {
+                    alert("Lütfen tüm alanları doldurun! ❌");
+                    return;
+                }
 
-            emailjs.send("service_281j401", "template_k4cu3gv", {
-                from_name: name,
-                from_email: email,
-                message: message
-            }).then(function(response) {
-                alert("Mesaj başarıyla gönderildi! ✅");
-                document.getElementById("contactForm").reset();
-            }, function(error) {
-                alert("Bir hata oluştu: " + error.text);
-                console.error("EmailJS Hatası:", error);
+                emailjs.send("service_281j401", "template_k4cu3gv", {
+                    from_name: name,
+                    from_email: email,
+                    message: message
+                }).then(function(response) {
+                    alert("Mesajınız başarıyla gönderildi! ✔️");
+                }).catch(function(error) {
+                    alert("Mesaj gönderilemedi, lütfen tekrar deneyin. ❌");
+                });
             });
-        });
-    })();
-</script>
 
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        })();
+    </script>
 </body>
 </html>
