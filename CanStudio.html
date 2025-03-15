@@ -312,7 +312,7 @@
                 <div class="game-info">
                     <h3>Word Jumble-Kelime Karışımı</h3>
                     <p>Zekâ ve kelime bilginizi test eden eğlenceli bir oyun!</p>
-                    <button class="cta-button">Detaylar</button>
+                   <button onclick="git()" class="cta-button">Keşfet</button>
                 </div>
             </div>
             <div class="game-card">
@@ -367,6 +367,12 @@
             navLinks.classList.toggle('active');
         });
 
+function wordjl()
+    {
+        function git() {
+        window.location.href = 'https://github.com'; 
+    }
+        
 function git() {
         document.querySelector('#games').scrollIntoView({ behavior: 'smooth' });
     }
