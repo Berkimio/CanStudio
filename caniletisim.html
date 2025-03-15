@@ -252,29 +252,6 @@
         <button type="submit">Gönder</button>
     </form>
 </section>
-
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-    (function() {
-        emailjs.init("YoC-OJisQeBBR8zRE"); // Kullanıcı ID'n
-
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Sayfanın yenilenmesini engelle
-
-            emailjs.send("service_281j401", "template_k4cu3gv", {
-                from_name: document.getElementById("name").value,
-                from_email: document.getElementById("email").value,
-                message: document.getElementById("message").value
-            }).then(function(response) {
-                alert("Mesaj başarıyla gönderildi! 🎉");
-            }, function(error) {
-                alert("Bir hata oluştu: " + error.text);
-            });
-        });
-    })();
-</script>
-
-
         <div class="contact-info">
             <div>
                 <i class="fas fa-phone"></i>
@@ -295,8 +272,37 @@
         <p>&copy; 2025 Can Dev Studio. Tüm hakları saklıdır.</p>
     </footer>
 
-    <script>
-       
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init("YoC-OJisQeBBR8zRE"); // Kullanıcı ID
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Sayfa yenilenmesini engelle
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+
+            if (name === "" || email === "" || message === "") {
+                alert("Lütfen tüm alanları doldurun! ❌");
+                return;
+            }
+
+            emailjs.send("service_281j401", "template_k4cu3gv", {
+                from_name: name,
+                from_email: email,
+                message: message
+            }).then(function(response) {
+                alert("Mesaj başarıyla gönderildi! ✅");
+                document.getElementById("contactForm").reset(); // Formu sıfırla
+            }, function(error) {
+                alert("Bir hata oluştu: " + error.text);
+                console.error("EmailJS Hatası:", error);
+            });
+        });
+    })();
+</script>
+
 </body>
 </html>
