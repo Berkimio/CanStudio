@@ -72,6 +72,19 @@
             width: 100%;
         }
 
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+        }
+
         .about-section {
             padding: 100px 50px;
             background: linear-gradient(135deg, #0066ff, #00f3ff);
@@ -202,6 +215,11 @@
 <body>
     <nav class="navbar">
         <a href="#" class="logo">CAN DEV STUDIO</a>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="nav-links">
             <a href="CanStudio.html">Ana Sayfa</a>
             <a href="CanStudio.html#games">Oyunlar</a>
@@ -232,5 +250,12 @@
     <footer>
         <p>&copy; 2025 Can Dev Studio. Tüm hakları saklıdır.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
