@@ -243,14 +243,37 @@
         <h1>İletişim</h1>
     </section>
 
-    <section class="contact-section">
-        <h2>Bize Ulaşın</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Adınız" required>
-            <input type="email" placeholder="cannstudioo@gmail.com" required>
-            <textarea placeholder="Mesajınız" rows="5" required></textarea>
-            <button type="submit">Gönder</button>
-        </form>
+   <section class="contact-section">
+    <h2>Bize Ulaşın</h2>
+    <form class="contact-form" id="contactForm">
+        <input type="text" id="name" placeholder="Adınız" required>
+        <input type="email" id="email" placeholder="E-posta" required>
+        <textarea id="message" placeholder="Mesajınız" rows="5" required></textarea>
+        <button type="submit">Gönder</button>
+    </form>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init("YoC-OJisQeBBR8zRE"); // Kullanıcı ID'n
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Sayfanın yenilenmesini engelle
+
+            emailjs.send("service_281j401", "template_k4cu3gv", {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            }).then(function(response) {
+                alert("Mesaj başarıyla gönderildi! 🎉");
+            }, function(error) {
+                alert("Bir hata oluştu: " + error.text);
+            });
+        });
+    })();
+</script>
+
 
         <div class="contact-info">
             <div>
